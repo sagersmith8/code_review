@@ -72,7 +72,7 @@ To use the project:
 .. code-block:: bash
 
     $ python -m code_review -h
-    usage: [-h] [-o] [-s] [-t TOKEN]
+    usage: code_review [-h] [-o] [-s] [-t TOKEN]
 
     Command description.
 
