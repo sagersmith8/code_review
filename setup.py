@@ -28,7 +28,7 @@ VERSION = os.getenv("TRAVIS_BRANCH") if os.getenv("TRAVIS_BRANCH") else "0.0.0"
 
 setup(
     name='code_review',
-    version='0.0.1',
+    version=VERSION,
     license='Apache Software License 2.0',
     description='code_review',
     long_description='%s\n%s' % (
