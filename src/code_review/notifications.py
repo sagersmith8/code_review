@@ -3,7 +3,7 @@ import webbrowser
 
 from github import Github
 
-URL_REPLACEMENTS = {'api': '', 'repos/': '', 'pulls': 'pull'}
+URL_REPLACEMENTS = {'/api.': '/', 'repos/': '', 'pulls': 'pull'}
 
 
 def replace(string, substitutions):
