@@ -6,7 +6,7 @@ Why does this file exist, and why not put this in __main__?
   You might be tempted to import things from __main__ later, but that will cause
   problems: the code will get executed twice:
 
-  - When you run `python -mcode_review` python will execute
+  - When you run `python -m code_review` python will execute
     ``__main__.py`` as a script. That means there won't be any
     ``code_review.__main__`` in ``sys.modules``.
   - When you import __main__ it will get executed again (as a module) because
@@ -23,6 +23,7 @@ parser = argparse.ArgumentParser(description='Command description.', epilog='mad
 parser.add_argument('-o', '--open', action='store_true', help="Opens new code review updates in default browser")
 parser.add_argument('-s', '--stdout', action='store_true', help='Prints code review updates')
 parser.add_argument('-t', '--token', type=str, help='Token to use when checking for updates')
+parser.add_argument('-r', '--releases', action='store_true', help='Whether to include release notifications')
 
 
 def main(args=None):
@@ -34,7 +35,7 @@ def main(args=None):
         else:
             token = args.token
     if token:
-        cr = NotificationViewer(token)
+        cr = NotificationViewer(token, args.releases)
         if args.open:
             cr.open()
             return
